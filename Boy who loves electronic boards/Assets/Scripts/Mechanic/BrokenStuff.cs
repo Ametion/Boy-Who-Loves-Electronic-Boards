@@ -1,34 +1,44 @@
-﻿using Components.Abstract;
+﻿using System;
+using Components.Abstract;
 
 namespace Components.Mechanic
 {
     public class BrokenStuff : IBroken
     {
-        public int priceToRepair { get; set; }
-        public IPiece piece { get; set; }
-
-        public int pieceOfPrice
+        public IPiece Piece { get; set; }
+        
+        public int PriceToRepair { get; set; }
+        
+        public int PriceOfPiece
         {
             get
             {
-                if (piece != null) return piece.costOfPiece;
-                else return 0;
+                if (Piece != null) 
+                    return Piece.PriceOfPiece;
+                
+                return 0;
             }
         }
 
-        public int totalPrice
+        public int TotalPrice
         {
             get
             {
-                if (piece != null) return pieceOfPrice + priceToRepair;
-                else return 0;
+                if (Piece != null) 
+                    return PriceOfPiece + PriceToRepair;
+                
+                return 0;
             }
         }
 
-        public BrokenStuff(IPiece Piece, int PriceToRepair)
+        public BrokenStuff(IPiece piece, int priceToRepair)
         {
-            piece = Piece;
-            priceToRepair = PriceToRepair;
+            if (piece.IsBroken)
+            {
+                Piece = piece;
+                PriceToRepair = priceToRepair;
+            }
+            else throw new Exception("You try to put not broken stuff to brokne stuff");
         }
     }
 }

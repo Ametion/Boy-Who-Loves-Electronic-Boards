@@ -2,9 +2,9 @@
 {
     public interface IBroken
     {
-        int priceToRepair { get; set; }
-        IPiece piece { get; set; }
-        int pieceOfPrice { get; }
-        int totalPrice { get; }
+        IPiece Piece { get; set; }
+        int PriceToRepair { get; set; }
+        int PriceOfPiece { get; }
+        int TotalPrice { get; }
     }
 }

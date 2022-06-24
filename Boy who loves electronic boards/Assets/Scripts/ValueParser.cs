@@ -3,18 +3,18 @@
     public static class ValueParser 
     {
         private static string[] names = { "", "K", "M", "B", "T" };
-        public static string Parse(decimal digit)
+        public static string Parse(decimal value)
         {
-            if (digit < 1000)
-                return digit.ToString();
+            if (value < 1000)
+                return value.ToString();
 
             int n = 0;
-            while (n + 1 < names.Length && digit >= 1000m)
+            while (n + 1 < names.Length && value >= 1000m)
             {
-                digit /= 1000m;
+                value /= 1000m;
                 n++;
             }
-            return digit.ToString("#.##") + names[n];
+            return value.ToString("#.##") + names[n];
         }
 
         public static string UnParse(string val)
@@ -42,10 +42,8 @@
                 float res= float.Parse(val) * multiplier;
                 return res.ToString();
             }
-            else
-            {
-                return float.Parse(val).ToString();
-            }
+
+            return float.Parse(val).ToString();
         }
     }
 }

@@ -4,15 +4,15 @@ namespace Components.Mechanic
 {
     public class Mission : IMission
     {
-        public string missionName { get; private set; }
-        public int reward { get; private set; }
-        public IBroken pieceToRepair { get; private set; }
+        public string MissionName { get; }
+        public int Reward { get; }
+        public IBroken PieceToRepair { get; }
 
-        public Mission(string MissionName, int Reward,  IBroken PieceToRepair)
+        public Mission(string missionName, int reward,  IBroken pieceToRepair)
         {
-            missionName = MissionName;
-            reward = Reward;
-            pieceToRepair = PieceToRepair;
+            MissionName = missionName;
+            Reward = reward;
+            PieceToRepair = pieceToRepair;
         }
     }
 }

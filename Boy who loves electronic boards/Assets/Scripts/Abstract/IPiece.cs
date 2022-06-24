@@ -1,8 +1,9 @@
 ﻿namespace Components.Abstract
 {
-    public interface IPiece
+    public interface IPiece : IModel
     {
-        string piece { get; }
-        int costOfPiece { get; set; }
+        string Piece { get; }
+        int PriceOfPiece { get; set; }
+        bool IsBroken { get; set; }
     }
 }

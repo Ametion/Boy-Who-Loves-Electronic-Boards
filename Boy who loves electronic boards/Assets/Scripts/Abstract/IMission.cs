@@ -2,8 +2,8 @@
 {
     public interface IMission
     {
-        string missionName { get; }
-        int reward { get; }
-        IBroken pieceToRepair { get; }
+        string MissionName { get; }
+        int Reward { get; }
+        IBroken PieceToRepair { get; }
     }
 }
