@@ -16,7 +16,10 @@ namespace Components.UI
             _controller = FindObjectOfType<ControllerForTest>();
 
             _texts = GetComponentsInChildren<Text>().ToList();
-            
+        }
+
+        private void Update()
+        {
             for (int i = 0; i < _texts.Count; i++)
             {
                 _texts[i].text = $"{_controller.Inventory.GetStuffName(i)}\n{_controller.Inventory.GetStuffModel(i)}";
